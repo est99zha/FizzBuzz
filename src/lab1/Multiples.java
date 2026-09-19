@@ -2,21 +2,21 @@ package lab1;
 
 public class Multiples {
     public static void main(String[] args) {
+        System.out.println(multiples(16, 3, 5));
+    }
+
+    static int multiples(int n, int a, int b) {
         int i = 1;
         int result = 0;
-        while (i < 1000) {
-             result += count(i);
+
+        while (i < n) {
+            boolean divisibleby3 = i % a == 0;
+            boolean divisibleby5 = i % b == 0;
+            if (divisibleby3 || divisibleby5) {
+                result += 1;
+            }
             i++;
         }
-        System.out.println(result);
-    }
-    static int count(int i) {
-        int count = 0;
-        boolean divisibleby3 = i % 3 == 0;
-        boolean divisibleby5 = i % 5 == 0;
-        if (divisibleby3 || divisibleby5) {
-            count += 1;
-        }
-        return count;
+        return result;
     }
 }
